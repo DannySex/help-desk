@@ -1,40 +1,23 @@
-<?php
-include "conexion.php";
-class Asignacion extends Conexion{
-    public function agregarAsignacion($datos){
-        $conexion = Conexion :: conectar();
-        $sql = "INSERT INTO t_asignacion (id_persona,
-        id_equipo,
-        marca,
-        modelo,
-        color,
-        descripcion,
-        memoria,
-        disco_duro,
-        procesador)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        $query = $conexion->prepare($sql);
-        $query->bind_param('iisssssss', $datos['idPersona'],
-                                       $datos['idEquipo'],         
-                                       $datos['marca'],         
-                                       $datos['modelo'],         
-                                       $datos['color'],         
-                                       $datos['descripcion'],         
-                                       $datos['memoria'],         
-                                       $datos['discoDuro'],         
-                                       $datos['Procesador']);
-        $respuesta = $query->execute();
-        $query->close();
-        return $respuesta;
-    }
-    public function eliminarAsignacion($idAsignacion){
-        $conexion = Conexion :: conectar();
-        $sql = "DELETE FROM t_asignacion WHERE idt_asignacion = ?";
-        $query = $conexion->prepare($sql);
-        $query->bind_param('i',$idAsignacion);
-        $respuesta = $query->execute();
-        $query->close();
-        return $respuesta;
-    }
-}
-?>
+
+<?php 
+include "header.php";
+if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rol']== 2) {
+   
+ ?>
+
+<!-- Page Content -->
+<div class="container">
+  <div class="card border-0 shadow my-5">
+    <div class="card-body p-5">
+      <h1 class="fw-light">Reporte</h1>
+      <p class="lead"> but the image will remain in a fixed position!</p>
+    </div>
+  </div>
+</div>
+
+
+<?php include "footer.php"; 
+
+}else{
+    header("Location:../index.html");
+}?>

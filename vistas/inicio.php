@@ -1,35 +1,24 @@
-<?php
-include "conexion.php";
-class Inicio extends conexion{
-    public function actualizarPersonales($datos){
-        $conexion = Conexion::conectar();
-        $idUsuario = $datos['idUsuario'];
-        $sql = "SELECT id_persona FROM t_usuarios WHERE id_usuario = '$idUsuario'";
-        $respuesta = mysqli_query($conexion, $sql);
-        $idPersona = mysqli_fetch_array($respuesta)[0];
-        $sql = "UPDATE t_persona
-            SET
-                paterno = ?,
-                materno = ?,
-                nombre = ?,
-                telefono = ?,
-                correo = ?,
-                fecha_nacimiento = ?
-                WHERE 
-                    id_persona = ?";
-        $query = $conexion->prepare($sql);
-        $query->bind_param("ssssssi", $datos['paterno'],
-                                      $datos['materno'],
-                                      $datos['nombre'],
-                                      $datos['telefono'],
-                                      $datos['correo'],
-                                      $datos['fecha'],
-                                      $idPersona);
-        $respuesta = $query->execute();
-        $query->close();
-        return $respuesta;
-        
-    }
-}
 
-?>
+<?php 
+include "header.php";
+if (isset($_SESSION['usuario']) &&
+ $_SESSION['usuario']['rol']== 1 || $_SESSION['usuario']['rol']== 2) {
+   
+ ?>
+
+<!-- Page Content -->
+<div class="container">
+  <div class="card border-0 shadow my-5">
+    <div class="card-body p-5">
+      <h1 class="fw-light">Inicio</h1>
+      <p class="lead"> but the image will remain in a fixed position!</p>
+    </div>
+  </div>
+</div>
+
+
+<?php include "footer.php"; 
+
+}else{
+    header("Location:../index.html");
+}?>

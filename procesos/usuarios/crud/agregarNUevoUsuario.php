@@ -17,4 +17,4 @@ include "../../../clases/usuarios.php";
 $Usuarios = new usuarios();
 
 echo $Usuarios->agregarNuevoUsuario($datos);
-?>
+?> 

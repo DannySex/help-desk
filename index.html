@@ -1,35 +1,40 @@
-  <!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>Login Pirata</title>
-
-<!-- ✅ BOOTSTRAP CSS (FALTABA) -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<link rel="stylesheet" href="/public/css/estilo.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./public/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="./public/css/menu.css">
+    <link rel="stylesheet" href="./public/css/estilo.css">
+    
+    <title>login usuario</title>
 </head>
 
-<body>
-
-<!-- ================= LOGIN ================= -->
+<body style="background-image: url(../DESK/public/img/OnePiece.jpeg);">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
 <div class="container-login" id="box">
 
-    <img id="personaje" src="/public/img/Luffy_normal.jpeg">
+    <img id="personaje" src="../DESK/public/img/Luffy_normal.jpeg">
 
     <h2>Help-Desk</h2>
+    <form id="frmLogin" method="POST" onsubmit="return loginUsuario()">
+        <input type="text" id="login" name="login" placeholder="Nombre del usuario">
 
-    <input type="text" id="usuario" placeholder="Nombre del usuario">
+        <input type="password"
+            id="password"
+            name="password"
+            placeholder="Contreseña"
+            onfocus="taparOjos()"
+            onblur="normal()">
 
-    <input type="password"
-           id="password"
-           placeholder="Contreseña"
-           onfocus="taparOjos()"
-           onblur="normal()">
+        <button type="submit" class="fadeIn fourth" value="Entrar">Acceder</button>
 
-    <button onclick="login()">Acceder</button>
-
-    <div class="mensaje" id="mensaje"></div>
+        <div class="mensaje" id="mensaje"></div>
 
     <!-- LINK CONTACTO -->
     <div id="formFooter">
@@ -49,7 +54,6 @@
 
       <div class="modal-header">
         <h5 class="modal-title">Contacto</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 
       <div class="modal-body">
@@ -77,12 +81,16 @@
     </div>
   </div>
 </div>
-<!-- ================= FIN MODAL ================= -->
 
 
-<!-- BOOTSTRAP JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/usuario/Login.js"></script>
+    <script src="public/jquery/jquery-3.6.0.min.js"></script>
+    <script src="public/bootstrap/popper.min.js"></script>
+    <script src="public/bootstrap/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="public/js/usuario/login.js"></script>
+    <script src="public/sweetalert2/sweetalert2@11.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
 </html>

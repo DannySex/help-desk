@@ -8,7 +8,14 @@ function loginUsuario() {
             if (respuesta == 1) {
                 window.location.href = "vistas/inicio.php";
             } else {
-                Swal.fire(":(", "Error al entrar! " + respuesta, "error");
+Swal.fire({
+    title: 'Estas mal 馬鹿!',
+    text: 'Error al guardar',
+    imageUrl: '../DESK/public/img/nami_enojada.jpeg',
+    imageHeight: 150,
+    imageWidth: 150
+
+                });
             }
         }
     });
