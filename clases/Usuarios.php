@@ -61,7 +61,7 @@
             $datos['sexo'],
             $datos['telefono'],
             $datos['correo']);
-            $respuesta =$query->execute();
+            $respuesta = $query->execute();
             $idPersona = mysqli_insert_id($conexion);
             $query->close();
             return $idPersona;

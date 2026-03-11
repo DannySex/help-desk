@@ -11,7 +11,7 @@ if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rol']== 2) {
     <div class="card-body p-5">
       <h1 class="fw-light">Administrar Usuarios</h1>
       <p class="lead"> 
-      <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarUsuario">Agregar Usuario</button>
+      <button class="btn btn-primary" data-toggle="modal" data-target="#modalActualizarUsuario">Agregar Usuario</button>
       <hr>
       <div id="tablaUsuariosLoad"></div>
         
@@ -22,6 +22,7 @@ if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rol']== 2) {
 
 
         <?php include "usuarios/modalAgregar.php";?>
+        <?php include "usuarios/modalActualizar.php";?>
 <?php include "footer.php"; 
 ?>
   <script src="../public/js/usuario/usuarios.js"></script>

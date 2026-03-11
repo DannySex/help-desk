@@ -33,13 +33,12 @@ if(!$result){
     <th>Apellido Paterno</th>
     <th>Apellido Materno</th>
     <th>Edad</th>
-    <th>Sexo</th>
     <th>Telefono</th>
     <th>Correo</th>
     <th>Usuario</th>
      <th>Ubicacion</th>
+     <th>Sexo</th>
     <th>Reset Password</th>
-    <th>Cambiar Rol</th>
     <th>Activar</th>
     <th>Editar</th>
     <th>Eliminar</th>
@@ -51,19 +50,14 @@ if(!$result){
             <td><?php echo $mostrar['paterno']; ?></td>
             <td><?php echo $mostrar['materno']; ?></td>
             <td><?php echo $mostrar['fecha_nacimiento']; ?></td>
-            <td><?php echo $mostrar['sexo']; ?></td>
             <td><?php echo $mostrar['telefono']; ?></td>
             <td><?php echo $mostrar['correo']; ?></td>
             <td><?php echo $mostrar['nombreUsuario']; ?></td>
             <td><?php echo $mostrar['ubicacion']; ?></td>
+            <td><?php echo $mostrar['sexo']; ?></td>
             <td>
                 <button class="btn btn-success btn-sm">
                     Cambiar Password
-                </button>
-            </td>
-            <td>
-                <button class="btn btn-primary btn-sm">
-                    Cambiar Rol
                 </button>
             </td>
             <td>
@@ -79,7 +73,7 @@ if(!$result){
                  
             </td>
             <td>
-                <button class="btn btn-warning btn-sm">
+                <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalActualizarUsuario" onclick="obtenerDatosUsuario(<?php echo $mostrar['idUsuario'] ?>)">
                     <i class="fas fa-edit">Editar</i>
                 </button>
             </td>
