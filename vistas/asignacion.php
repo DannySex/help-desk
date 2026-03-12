@@ -1,11 +1,11 @@
 
 <?php 
-include "header.php";
-if (!isset($_SESSION['usuario']) && $_SESSION['usuario']['rol'] != 2) {
-    include "../clases/Conexion.php";
-    $con = new Conexion();
-    $conexion = $con->conectar();
-   
+    include "header.php";
+        if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rol'] = 2)
+          {
+            include "../clases/Conexion.php";
+            $con = new Conexion();
+            $conexion = $con->conectar();
  ?>
 
 <!-- Page Content -->
@@ -14,7 +14,7 @@ if (!isset($_SESSION['usuario']) && $_SESSION['usuario']['rol'] != 2) {
     <div class="card-body p-5">
       <h1 class="fw-light">Asignacion de equipos</h1>
       <p class="lead">
-        <button class="btn btn-primary">Asignar equipo</button>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAsignarEquipo">Asignar equipo</button>
       </p>
       <hr>
       <div id="tablaAsignacionesLoad"></div>
@@ -23,8 +23,18 @@ if (!isset($_SESSION['usuario']) && $_SESSION['usuario']['rol'] != 2) {
 </div>
 
 
-<?php include "footer.php"; 
+<?php 
+include "asignacion/modalAsignacion.php";
+include "footer.php";
+?> 
+
+<script src="../public/js/asignacion/asignacion.js"></script>
+
+
+<?php 
 
 }else{
     header("Location:../index.html");
 }?>
+
+<!-- Button trigger modal -->

@@ -29,7 +29,7 @@ class Asignacion extends Conexion{
     }
     public function eliminarAsignacion($idAsignacion){
         $conexion = Conexion :: conectar();
-        $sql = "DELETE FROM t_asignacion WHERE idt_asignacion = ?";
+        $sql = "DELETE FROM t_asignacion WHERE id_asignacion = ?";
         $query = $conexion->prepare($sql);
         $query->bind_param('i',$idAsignacion);
         $respuesta = $query->execute();
