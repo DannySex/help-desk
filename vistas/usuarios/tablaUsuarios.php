@@ -68,7 +68,7 @@ if (!$result) {
             <td><?php echo $mostrar['sexo']; ?></td>
 
             <td>
-                <button class="btn btn-info btn-sm">
+                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalResetPassword" onclick="agregarIdUsuarioReset(<?php echo $mostrar['idUsuario'] ?>)">
                     Cambiar Password
                 </button>
             </td>
@@ -83,7 +83,7 @@ if (!$result) {
                         Inactivo
                     </button>
                 <?php } ?>
-            </td>00000
+            </td>
 
             <td>
                 <button 
@@ -97,9 +97,14 @@ if (!$result) {
             </td>
 
             <td>
-                <button class="btn btn-danger btn-sm">
+                <button class="btn btn-danger btn-sm" onclick="eliminarUsuario(<?php echo $mostrar['idUsuario']; ?>)">
                     <i class="fas fa-trash"></i> Eliminar
                 </button>
+                <form action="frmEliminarUsuario<?php echo $mostrar['idUsuario']; ?>" method="POST" onsubmit="return eliminarUsuario()">
+                    <input type="text" name="idUsuarioEliminar" value="<?php echo $mostrar['idUsuario']; ?>" hidden>
+                    <input type="text" name="idPersonaEliminar" value="<?php echo $mostrar['idPersona']; ?>" hidden>
+                </form>
+               
             </td>
 
         </tr>
