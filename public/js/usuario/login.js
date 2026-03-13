@@ -9,7 +9,7 @@ function loginUsuario() {
                 window.location.href = "vistas/inicio.php";
             } else {
 Swal.fire({
-    title: 'Estas mal 馬鹿!',
+    title: 'Intenta de nuevo',
     text: 'Error al guardar',
     imageUrl: '../DESK/public/img/nami_enojada.jpeg',
     imageHeight: 150,

@@ -9,7 +9,7 @@ $datos = array(
     'nombre' =>$_POST['nombreInicio'],
     'telefono' =>$_POST['telefonoInicio'],
     'correo' =>$_POST['correoInicio'],
-    'fecha' =>$_POST['fechaNacimientoInicio'],
+    'fecha' =>$_POST['fechaNacInicio'],
     'idUsuario' => $idUsuario
 );
 $Inicio = new Inicio();

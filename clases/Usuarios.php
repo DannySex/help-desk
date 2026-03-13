@@ -178,15 +178,7 @@
             $respuesta = $query->execute();
             return $respuesta;
         }
-        public function calculaedad($fc){
-            list($ano,$mes,$dia) = explode("-",$fc);
-            $ano_diferencia  = date("Y") - $ano;
-            $mes_diferencia = date("m") - $mes;
-            $dia_diferencia   = date("d") - $dia;
-            if ($dia_diferencia < 0 || $mes_diferencia < 0)
-              $ano_diferencia--;
-            return $ano_diferencia;
-        }
+
         public function cambioEstatusUsuario($idUsuario,$estatus){
             $conexion = Conexion::conectar();
             if ($estatus == 1) {
