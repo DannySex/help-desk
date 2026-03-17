@@ -9,7 +9,7 @@ if (isset($_SESSION['usuario']) &&
 
 <!-- Page Content -->
 <div class="container">
-  <div class="card border-0 shadow my-5">
+  <div class="card border-0 shadow my-5" style="background: rgba(255,255,255,0.75); border-radius:12px; backdrop-filter: blur(5px);">
     <div class="card-body p-5">
       <h1 class="fw-light">BIENVENIDO <?php echo $_SESSION['usuario']['nombre']; ?></h1>
       <p class="lead">

@@ -10,11 +10,24 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../public/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="../public/css/platilla.css">
-    <link rel="stylesheet" href="../../DESK/public/datatables/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="../public/datatable/responsive.bootstrap4.min.css">
-    <link rel="stylesheet" href="../public/fontawesome/css/all.min.css">
+<!-- BOOTSTRAP -->
+<link rel="stylesheet" href="../public/bootstrap/bootstrap.min.css">
+
+<!-- FONT AWESOME -->
+<link rel="stylesheet" href="../public/fontawesome/css/all.min.css">
+
+<!-- DATATABLE BOOTSTRAP -->
+<link rel="stylesheet" href="../public/datatable/dataTables.bootstrap4.min.css">
+
+<!-- DATATABLE RESPONSIVE -->
+<link rel="stylesheet" href="../public/datatable/responsive.bootstrap4.min.css">
+
+<!-- DATATABLE BUTTONS -->
+<link rel="stylesheet" href="../public/datatable/buttons.bootstrap4.min.css">
+
+<!-- TU PLANTILLA -->
+<link rel="stylesheet" href="../public/css/platilla.css">
+    
     <title>Helpdesk</title>
 
 </head>

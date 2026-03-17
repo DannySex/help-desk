@@ -6,8 +6,17 @@ if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rol'] == 2) {
 
 <!-- Page Content -->
 <div class="container">
-
-    <div class="card border-0 shadow my-5">
+    <div style="
+        position:absolute;
+        top:50px;
+        left:50%;
+        transform:translateX(-150%);
+        z-index:10;">
+        <img src="../public/img/luffy.png" 
+        style="width:200px;">
+    </div>
+    <div class="row"></div>
+    <div class="card border-0 shadow my-5" style="background: rgba(255,255,255,0.75); border-radius:12px; backdrop-filter: blur(5px);">
 
         <div class="card-body p-5">
 

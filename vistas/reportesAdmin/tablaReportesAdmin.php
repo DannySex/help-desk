@@ -29,15 +29,14 @@ $sql = "SELECT
         ORDER BY reporte.fecha DESC";
 
 $respuesta = mysqli_query($conexion, $sql);
-
 $contador = 1;
 ?>
 
-<table class="table table-sm table-bordered dt-responsive nowrap" 
-       style="width:100%" 
-       id="tablaReporteAdminDataTable">
+<table id="tablaReporteAdminDataTable"
+       class="table table-sm table-bordered dt-responsive nowrap"
+       style="width:100%">
 
-    <thead>
+    <thead class="thead-dark">
         <tr>
             <th>#</th>
             <th>Nombre Completo</th>
@@ -56,33 +55,49 @@ $contador = 1;
 
         <tr>
             <td><?php echo $contador++; ?></td>
-            <td><?php echo $mostrar['paterno'] . " " . $mostrar['materno'] . " " . $mostrar['nombre']; ?></td>
-            <td><?php echo date("d/m/Y H:i:s", strtotime($mostrar['fechaReporte'])); ?></td>
-            <td><?php echo $mostrar['nombreEquipo']; ?></td>
-            <td><?php echo $mostrar['descripcionProblema']; ?></td>
+
             <td>
                 <?php 
-                $estatus = $mostrar['estatusReporte'];
-                if ($estatus == 1) {
+                echo $mostrar['paterno'] . " " . 
+                     $mostrar['materno'] . " " . 
+                     $mostrar['nombre']; 
+                ?>
+            </td>
+
+            <td>
+                <?php echo date("d/m/Y H:i:s", strtotime($mostrar['fechaReporte'])); ?>
+            </td>
+
+            <td><?php echo $mostrar['nombreEquipo']; ?></td>
+
+            <td><?php echo $mostrar['descripcionProblema']; ?></td>
+
+            <td>
+                <?php 
+                if ($mostrar['estatusReporte'] == 1) {
                     echo '<span class="badge badge-success">Abierto</span>';
                 } else {
                     echo '<span class="badge badge-danger">Cerrado</span>';
                 }
                 ?>
             </td>
-            <td>    
-                <button class="btn btn-info btn-sm" 
+
+            <td class="text-center">
+                <button class="btn btn-info btn-sm"
                         onclick="obtenerDatosSolucion('<?php echo $mostrar['idReporte']; ?>')"
-                        data-toggle="modal" data-target="#modalAgregarSolucionReporte">
+                        data-toggle="modal"
+                        data-target="#modalAgregarSolucionReporte">
                     Solución
                 </button>
             </td>
-            <td>
-                <button class="btn btn-danger btn-sm" 
+
+            <td class="text-center">
+                <button class="btn btn-danger btn-sm"
                         onclick="eliminarReporteAdmin(<?php echo $mostrar['idReporte']; ?>)">
                     Eliminar
                 </button>
             </td>
+
         </tr>
 
         <?php } ?>
@@ -91,12 +106,65 @@ $contador = 1;
 
 </table>
 
+
 <script>
+
 $(document).ready(function(){
-    $('#tablaReporteAdminDataTable').DataTable({
-        language: {
-            url: "https://cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json"
-        }
-    });
+
+$('#tablaReporteAdminDataTable').DataTable({
+
+destroy:true,
+responsive:true,
+scrollX:true,
+
+pageLength:10,
+
+lengthMenu:[
+[5,10,25,50,100],
+[5,10,25,50,100]
+],
+
+dom:
+"<'row mb-2'<'col-md-4'l><'col-md-4'f><'col-md-4 text-right'B>>" +
+"<'row'<'col-12'tr>>" +
+"<'row mt-2'<'col-md-5'i><'col-md-7'p>>",
+
+buttons:[
+
+{
+extend:'copy',
+className:'btn btn-outline-secondary btn-sm',
+text:'Copiar'
+},
+
+{
+extend:'excel',
+className:'btn btn-outline-success btn-sm',
+text:'Excel',
+title:'Reporte_Asignaciones'
+},
+
+{
+extend:'pdf',
+className:'btn btn-outline-danger btn-sm',
+text:'PDF',
+title:'Reporte_Asignaciones'
+},
+
+{
+extend:'print',
+className:'btn btn-outline-info btn-sm',
+text:'Imprimir'
+}
+
+],
+
+language:{
+url:"https://cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json"
+}
+
 });
+
+});
+
 </script>
